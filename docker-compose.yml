@@ -1,36 +1,36 @@
 version: "3"
 
 services:
-    document: 
-        build: 
-            context: ./docker/api/document
-        container_name: document
-        ports: 
-            - "3000:3000"
-        volumes:
-            - ./api/blueprint:/document
-        networks: 
-            default:
-    mock: 
-        build: 
-            context: ./docker/api/mock
-        container_name: mock
-        ports: 
-            - "3001:3001"
-        volumes:
-            - ./api/blueprint:/mock
-        networks: 
-            default:
-    api:
-        image: node:latest
-        container_name: api
-        working_dir: /api
-        volumes: 
-            - ./api:/api
-        ports:
-            - "8080:8080"
-        command: npm run start
-        networks: 
-            default:  
-networks: 
-    default:
+  document:
+    build:
+      context: ./docker/api/document
+    container_name: document
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api/blueprint:/document
+    networks:
+      default:
+  mock:
+    build:
+      context: ./docker/api/mock
+    container_name: mock
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./api/blueprint:/mock
+    networks:
+      default:
+  api:
+    image: node:latest
+    container_name: api
+    working_dir: /api
+    volumes:
+      - ./api:/api
+    ports:
+      - "5000:5000"
+    command: npm run start
+    networks:
+      default:
+networks:
+  default:
