@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.js",
+    "start:api": "node ./src/index.js",
+    "start:mock": "drakov -f ./blueprint/**/*.md --public --watch",
+    "start:document": "aglio --theme-variables slate -i ./blueprint/index.md -s -h ${DOCUMENT_HOST_IP}",
     "test:int": "dredd --reporter=apiary"
   },
   "author": "",
@@ -13,6 +15,8 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "aglio": "^2.3.0",
+    "drakov": "^1.0.4",
     "dredd": "^13.1.2"
   }
 }
